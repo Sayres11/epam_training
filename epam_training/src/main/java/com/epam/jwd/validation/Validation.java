@@ -4,15 +4,15 @@ package com.epam.jwd.validation;
  * Exception when transmitting zero or negative value
  */
 public class Validation {
-    public static void validation(Double _price, Double _weight)
+    public static void validation(Double price, Double weight)
             throws IllegalArgumentException {
 
-        if (_price <= 0) {
-            throw new IllegalArgumentException("Illegal argument 'price' = " + _price);
+        if (price <= 0) {
+            throw new IllegalArgumentException("Illegal argument 'price' = " + price);
         }
 
-        if (_weight <= 0) {
-            throw new IllegalArgumentException("Illegal argument 'Weight' = " + _weight);
+        if (weight <= 0) {
+            throw new IllegalArgumentException("Illegal argument 'Weight' = " + weight);
         }
     }
 }

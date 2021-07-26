@@ -1,10 +1,10 @@
 package com.epam.jwd;
 
 import com.epam.jwd.client.Client;
-import com.epam.jwd.consturctor.InstantCoffee;
-import com.epam.jwd.list.ListOfCoffee;
+import com.epam.jwd.entity.InstantCoffee;
+import com.epam.jwd.storage.ListOfCoffee;
 import com.epam.jwd.shop.Shop;
-import com.epam.jwd.consturctor.RoastCoffee;
+import com.epam.jwd.entity.RoastCoffee;
 
 public class Main {
 

@@ -1,6 +1,6 @@
 package com.epam.jwd.client;
 
-import com.epam.jwd.consturctor.Coffee;
+import com.epam.jwd.entity.Coffee;
 
 public interface ClientInterface {
 

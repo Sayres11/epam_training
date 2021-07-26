@@ -1,8 +1,8 @@
 package com.epam.jwd.shop;
 
-import com.epam.jwd.list.ShopList;
-import com.epam.jwd.list.ListOfCoffee;
-import com.epam.jwd.consturctor.Coffee;
+import com.epam.jwd.storage.ShopList;
+import com.epam.jwd.storage.ListOfCoffee;
+import com.epam.jwd.entity.Coffee;
 
 import java.util.Collections;
 
@@ -10,14 +10,14 @@ import java.util.Collections;
  * shop class with properties <b>_money</b>
  */
 public class Shop implements ShopInterface {
-    private static double _money;
+    private static double money;
 
     static ShopList shopList = new ShopList();
     ListOfCoffee listOfItem = ListOfCoffee.getInstanceListOfItem();
 
     //Constructor - creating a new object
-    public Shop(double _money) {
-        Shop._money = _money;
+    public Shop(double money) {
+        Shop.money = money;
     }
 
     /**
@@ -38,7 +38,7 @@ public class Shop implements ShopInterface {
                 listOfItem.getList()) {
             System.out.println(a + " :  " + Collections.frequency(shopList.CoffeeShop, a));
         }
-        System.out.println("Shop money: " + _money);
+        System.out.println("Shop money: " + money);
     }
 
     /**
@@ -55,26 +55,26 @@ public class Shop implements ShopInterface {
         double _tempMoney = 0;
         double _tempKg = 0;
 
-        if (_money < _moneyForBuy) {
+        if (money < _moneyForBuy) {
             System.out.println("you dont have money");
             return false;
         } else {
             while (_check) { //
                 for (Coffee c :
                         listOfItem.getList()) {
-                    if ((_tempMoney + c.get_price() <= _moneyForBuy)
-                            && (_tempKg + c.get_weight() < kg)) {
-                        _tempMoney += c.get_price();
-                        _tempKg += c.get_weight();
-                        this.shopList.CoffeeShop.add(c);
+                    if ((_tempMoney + c.getPrice() <= _moneyForBuy)
+                            && (_tempKg + c.getWeight() < kg)) {
+                        _tempMoney += c.getPrice();
+                        _tempKg += c.getWeight();
+                        shopList.CoffeeShop.add(c);
                     } else {
                         _check = false;
                     }
                 }
             }
             System.out.println(_tempMoney + "tmp " + _tempKg + "kg");
-            _money -= _tempMoney;
-            System.out.println(_money);
+            money -= _tempMoney;
+            System.out.println(money);
             return true;
         }
     }
@@ -88,9 +88,9 @@ public class Shop implements ShopInterface {
     public static boolean sellCoffee(String userTaste, String userType) {
         for (Coffee c :
                 shopList.CoffeeShop) {
-            if ((c.get_taste().equals(userTaste))
-                    && (c.get_type().equals(userType))) {
-                _money += c.get_price();
+            if ((c.getTaste().equals(userTaste))
+                    && (c.getType().equals(userType))) {
+                money += c.getPrice();
                 shopList.CoffeeShop.remove(c);
                 return true;
             }
@@ -103,7 +103,7 @@ public class Shop implements ShopInterface {
         System.out.println("\nFind: ");
         for (Coffee c :
                 shopList.CoffeeShop) {
-            if (c.get_price() >= from && c.get_price() <= to) {
+            if (c.getPrice() >= from && c.getPrice() <= to) {
                 System.out.println(c);
                 counter++;
             }
@@ -111,11 +111,11 @@ public class Shop implements ShopInterface {
         return counter >= 1;
     }
 
-    public static boolean searchCoffee(String taste) {
+    public  boolean searchCoffee(String taste) {
         int counter = 0;
         for (Coffee c :
                 shopList.CoffeeShop) {
-            if (c.get_taste().equals(taste)) {
+            if (c.getTaste().equals(taste)) {
                 System.out.println(c);
                 counter++;
             }
@@ -124,6 +124,6 @@ public class Shop implements ShopInterface {
     }
 
     public String toString() {
-        return "Money: " + _money;
+        return "Money: " + money;
     }
 }

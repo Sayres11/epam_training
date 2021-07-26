@@ -1,5 +1,7 @@
 package com.epam.jwd.entity;
 
+import java.util.Objects;
+
 /**
  * The abstract class Coffee are designed to provide basic functionality to the derived classes
  *
@@ -8,10 +10,10 @@ package com.epam.jwd.entity;
  */
 public abstract class Coffee {
 
-    private final String _taste;
-    private String _type;
-    private final double _price;
-    private final double _weight;
+    private final String taste;
+    private String type;
+    private final double price;
+    private final double weight;
 
     /**
      * Constructor - create a new object(Coffee) with defined values
@@ -19,56 +21,73 @@ public abstract class Coffee {
      * @see InstantCoffee#InstantCoffee
      * @see RoastCoffee#RoastCoffee
      */
-    public Coffee(String _taste, double _weight, double _price) {
-        this._taste = _taste;
-        this._weight = _weight;
-        this._price = _price;
+    public Coffee(String taste, double weight, double price) {
+        this.taste = taste;
+        this.weight = weight;
+        this.price = price;
     }
 
     /**
-     * Function to get the value of the {@link Coffee#_taste} field
+     * Function to get the value of the {@link Coffee#taste} field
      *
      * @return returns the taste of coffee
      */
-    public String get_taste() {
-        return _taste;
+    public String getTaste() {
+        return this.taste;
     }
 
     /**
-     * Function to get the value of the {@link Coffee#_type} field
+     * Function to get the value of the {@link Coffee#type} field
      *
      * @return returns the type of coffee
      */
-    public String get_type() {
-        return _type;
+    public String getType() {
+        return this.type;
     }
 
     /**
-     * Function to get the value of the {@link Coffee#_price} field
+     * Function to get the value of the {@link Coffee#price} field
      *
      * @return returns the price of coffee
      */
-    public double get_price() {
-        return _price;
+    public double getPrice() {
+        return this.price;
     }
 
     /**
-     * Function to get the value of the {@link Coffee#_weight} field
+     * Function to get the value of the {@link Coffee#weight} field
      *
      * @return returns the weight of coffee
      */
-    public double get_weight() {
-        return _weight;
+    public double getWeight() {
+        return this.weight;
     }
 
     /**
      * Sets the value of the _type property
      */
-    public void set_type(String t) {
-        _type = t;
+    public void setType(String t) {
+        this.type = t;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Coffee)) return false;
+        Coffee coffee = (Coffee) o;
+        return Double.compare(coffee.getPrice(), getPrice()) == 0
+                && Double.compare(coffee.getWeight(), getWeight()) == 0
+                && getTaste().equals(coffee.getTaste())
+                && getType().equals(coffee.getType());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTaste(), getType(), getPrice(), getWeight());
+    }
+
+    @Override
     public String toString() {
-        return _type + ", " + _taste + " flavoured coffee, " + _weight + "KG" + " coast:" + _price + "$";
+        return this.type + ", " + this.taste + " flavoured coffee, " + this.weight + "KG" + " coast:" + this.price + "$";
     }
 }
