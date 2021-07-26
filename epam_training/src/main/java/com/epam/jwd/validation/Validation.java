@@ -12,7 +12,7 @@ public class Validation {
         }
 
         if (_weight <= 0) {
-            throw new IllegalArgumentException("Illegal argument 'netWeight' = " + _weight);
+            throw new IllegalArgumentException("Illegal argument 'Weight' = " + _weight);
         }
     }
 }
