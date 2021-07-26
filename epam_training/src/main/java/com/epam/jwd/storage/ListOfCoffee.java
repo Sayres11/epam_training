@@ -27,10 +27,10 @@ public class ListOfCoffee {
     }
 
     public int compareByPrice(Coffee o1, Coffee o2) {
-        return ((Double) o1.getPrice()).compareTo(o2.getPrice());
+        return Double.compare(o1.getPrice(), o2.getPrice());
     }
 
     public int compareByWeight(Coffee o1, Coffee o2) {
-        return ((Double) o1.getWeight()).compareTo(o2.getWeight());
+        return Double.compare(o1.getWeight(), o2.getWeight());
     }
 }
