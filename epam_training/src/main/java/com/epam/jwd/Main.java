@@ -1,6 +1,7 @@
 package com.epam.jwd;
 
 import com.epam.jwd.client.Client;
+
 import com.epam.jwd.entity.*;
 import com.epam.jwd.storage.CoffeeList;
 import com.epam.jwd.shop.Shop;
