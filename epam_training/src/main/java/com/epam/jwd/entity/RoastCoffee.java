@@ -5,7 +5,7 @@ import java.util.Objects;
 public class RoastCoffee extends Coffee {
 
     public RoastCoffee(String _taste, double _weight, double _price, CoffeePack coffeePack) {
-        super(_taste, _weight, _price,coffeePack);
+        super(_taste, _weight, _price, coffeePack);
         setType("Roast");
     }
 
@@ -20,8 +20,18 @@ public class RoastCoffee extends Coffee {
     }
 
     @Override
+    public void setType(String t) {
+        super.setType(t);
+    }
+
+    @Override
     public double getPrice() {
         return super.getPrice();
+    }
+
+    @Override
+    public void setPrice(double price) {
+        super.setPrice(price);
     }
 
     @Override
@@ -32,16 +42,6 @@ public class RoastCoffee extends Coffee {
     @Override
     public CoffeePack getCoffeePack() {
         return super.getCoffeePack();
-    }
-
-    @Override
-    public void setType(String t) {
-        super.setType(t);
-    }
-
-    @Override
-    public void setPrice(double price) {
-        super.setPrice(price);
     }
 
     @Override

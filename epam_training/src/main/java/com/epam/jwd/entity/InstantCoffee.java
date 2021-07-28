@@ -26,23 +26,23 @@ public class InstantCoffee extends Coffee {
     }
 
     @Override
-    public double getPrice() {
-        return super.getPrice();
-    }
-
-    @Override
-    public double getWeight() {
-        return super.getWeight();
-    }
-
-    @Override
     public void setType(String t) {
         super.setType(t);
     }
 
     @Override
+    public double getPrice() {
+        return super.getPrice();
+    }
+
+    @Override
     public void setPrice(double price) {
         super.setPrice(price);
+    }
+
+    @Override
+    public double getWeight() {
+        return super.getWeight();
     }
 
     @Override

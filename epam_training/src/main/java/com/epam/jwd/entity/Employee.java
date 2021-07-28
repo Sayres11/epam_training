@@ -3,11 +3,11 @@ package com.epam.jwd.entity;
 import java.util.Objects;
 
 public class Employee {
-    private String name;
-    private String surname;
-    private int age;
-    private int salary;
     Job job;
+    private final String name;
+    private final String surname;
+    private final int age;
+    private final int salary;
 
     public Employee(String name, String surname, int age, int salary, Job job) {
         this.name = name;

@@ -3,6 +3,7 @@ package com.epam.jwd.storage;
 import com.epam.jwd.entity.Coffee;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * a class created to hold all the coffee that may not be in the shop
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public class CoffeeList {
     public static CoffeeList coffeeList;
 
-    private ArrayList<Coffee> allCoffee = new ArrayList<>();
+    private final List<Coffee> allCoffee = new ArrayList<>();
 
     /**
      * To avoid creating a new instance of the class and always have access to one "List" use singleton
@@ -22,7 +23,7 @@ public class CoffeeList {
         return coffeeList;
     }
 
-    public ArrayList<Coffee> getList() {
+    public List<Coffee> getList() {
         return allCoffee;
     }
 

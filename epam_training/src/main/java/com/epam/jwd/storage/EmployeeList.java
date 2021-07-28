@@ -4,10 +4,11 @@ import com.epam.jwd.entity.Employee;
 import com.epam.jwd.entity.Job;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeList {
     public static EmployeeList employeeList;
-    private ArrayList<Employee> employees = new ArrayList<>();
+    private final List<Employee> employees = new ArrayList<>();
 
     public static EmployeeList getInstance() {
         if (employeeList == null) {
@@ -16,7 +17,7 @@ public class EmployeeList {
         return employeeList;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
