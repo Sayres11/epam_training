@@ -5,8 +5,8 @@ package com.epam.jwd.entity;
  */
 public class InstantCoffee extends Coffee {
 
-    public InstantCoffee(String taste, double weight, double price) {
-        super(taste, weight, price);
+    public InstantCoffee(String taste, double weight, double price, CoffeePack coffeePack) {
+        super(taste, weight, price, coffeePack);
         setType("Instant/Blend");
     }
 
@@ -43,6 +43,11 @@ public class InstantCoffee extends Coffee {
     @Override
     public void setPrice(double price) {
         super.setPrice(price);
+    }
+
+    @Override
+    public void setCoffeePack(CoffeePack coffeePack) {
+        super.setCoffeePack(coffeePack);
     }
 
     @Override

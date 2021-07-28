@@ -15,22 +15,26 @@ public abstract class Coffee {
     private double price;
     private final double weight;
 
+    private CoffeePack coffeePack;
+
     /**
      * Constructor - create a new object(Coffee) with defined values
      *
      * @see InstantCoffee#InstantCoffee
      * @see RoastCoffee#RoastCoffee
      */
-    public Coffee(String taste, double weight, double price) {
+    public Coffee(String taste, double weight, double price, CoffeePack coffeePack) {
         this.taste = taste;
         this.weight = weight;
         this.price = price;
+        this.coffeePack = coffeePack;
     }
 
     public Coffee(String taste, double weight) {
         this.taste = taste;
         this.weight = weight;
     }
+
 
     /**
      * Function to get the value of the {@link Coffee#taste} field
@@ -68,6 +72,10 @@ public abstract class Coffee {
         return this.weight;
     }
 
+    public CoffeePack getCoffeePack() {
+        return coffeePack;
+    }
+
     /**
      * Sets the value of the _type property
      */
@@ -77,6 +85,10 @@ public abstract class Coffee {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public void setCoffeePack(CoffeePack coffeePack) {
+        this.coffeePack = coffeePack;
     }
 
     @Override
@@ -97,6 +109,6 @@ public abstract class Coffee {
 
     @Override
     public String toString() {
-        return this.type + ", " + this.taste + " flavoured coffee, " + this.weight + "KG" + " coast:" + this.price + "$";
+        return this.coffeePack + ", " + this.type + ", " + this.taste + " flavoured coffee, " + this.weight + "KG" + " coast:" + this.price + "$";
     }
 }

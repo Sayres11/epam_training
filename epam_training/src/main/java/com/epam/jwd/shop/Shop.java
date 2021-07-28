@@ -131,6 +131,7 @@ public class Shop implements ShopInterface {
             if (c.getTaste().equals(coffee.getTaste())
                     && c.getType().equals(coffee.getType())) {
                 coffee.setPrice(c.getPrice());
+                coffee.setCoffeePack(c.getCoffeePack());
             }
         }
     }

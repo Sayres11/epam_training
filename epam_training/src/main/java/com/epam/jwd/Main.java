@@ -21,11 +21,11 @@ public class Main {
 
         employeeList.getEmployees().add(new Employee("Tomas", "McKing", 19, 1000, Job.Barista));
 
-        coffeeList.getList().add(new RoastCoffee("Vanilla", 2, 2, "Glass"));
-        coffeeList.getList().add(new RoastCoffee("Chocolate", 10, 90, "Glass"));
-        coffeeList.getList().add(new InstantCoffee("Classic", 5, 8));
-        coffeeList.getList().add(new RoastCoffee("Vanilla2", 2, 2, "Glass"));
-        coffeeList.getList().add(new InstantCoffee("Blueberry", 8, 18));
+        coffeeList.getList().add(new RoastCoffee("Vanilla", 2, 2, CoffeePack.GLASS));
+        coffeeList.getList().add(new RoastCoffee("Chocolate", 10, 90, CoffeePack.GLASS));
+        coffeeList.getList().add(new InstantCoffee("Classic", 5, 8, CoffeePack.CARTON));
+        coffeeList.getList().add(new RoastCoffee("Vanilla2", 2, 2, CoffeePack.BOX));
+        coffeeList.getList().add(new InstantCoffee("Blueberry", 8, 18, CoffeePack.GLASS));
 
         shop.buy(250, 50);
         shop.printAllCoffee();

@@ -43,7 +43,7 @@ public class Client implements ClientInterface {
         if (money >= drink.getPrice()) {
             Shop.sellDrink(drink);
             money -= drink.getPrice();
-            System.out.println(this.name + " buy " + drink + "for " + drink.getPrice());
+            System.out.println(this.name + " buy " + drink + " for " + drink.getPrice());
         } else {
             System.out.println("you dont have money for buy " + drink);
         }
