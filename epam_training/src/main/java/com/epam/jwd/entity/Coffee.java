@@ -12,7 +12,7 @@ public abstract class Coffee {
 
     private final String taste;
     private String type;
-    private final double price;
+    private double price;
     private final double weight;
 
     /**
@@ -25,6 +25,11 @@ public abstract class Coffee {
         this.taste = taste;
         this.weight = weight;
         this.price = price;
+    }
+
+    public Coffee(String taste, double weight) {
+        this.taste = taste;
+        this.weight = weight;
     }
 
     /**
@@ -68,6 +73,10 @@ public abstract class Coffee {
      */
     public void setType(String t) {
         this.type = t;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override

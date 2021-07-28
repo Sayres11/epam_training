@@ -12,6 +12,36 @@ public class RoastCoffee extends Coffee {
     }
 
     @Override
+    public String getTaste() {
+        return super.getTaste();
+    }
+
+    @Override
+    public String getType() {
+        return super.getType();
+    }
+
+    @Override
+    public double getPrice() {
+        return super.getPrice();
+    }
+
+    @Override
+    public double getWeight() {
+        return super.getWeight();
+    }
+
+    @Override
+    public void setType(String t) {
+        super.setType(t);
+    }
+
+    @Override
+    public void setPrice(double price) {
+        super.setPrice(price);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof RoastCoffee)) return false;

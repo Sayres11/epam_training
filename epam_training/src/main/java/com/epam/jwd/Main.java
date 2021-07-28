@@ -1,10 +1,10 @@
 package com.epam.jwd;
 
 import com.epam.jwd.client.Client;
-import com.epam.jwd.entity.InstantCoffee;
-import com.epam.jwd.storage.ListOfCoffee;
+import com.epam.jwd.entity.*;
+import com.epam.jwd.storage.CoffeeList;
 import com.epam.jwd.shop.Shop;
-import com.epam.jwd.entity.RoastCoffee;
+import com.epam.jwd.storage.EmployeeList;
 
 public class Main {
 
@@ -14,31 +14,37 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-        ListOfCoffee listOfCoffee = ListOfCoffee.getInstanceListOfItem();
+        CoffeeList coffeeList = CoffeeList.getInstanceListOfItem();
+        EmployeeList employeeList = EmployeeList.getInstance();
 
         Shop shop = new Shop(2000);
-        Client client = new Client("Pavel", 80);
 
-        listOfCoffee.allCoffee.add(new RoastCoffee("Vanilla", 2, 2, "Glass"));
-        listOfCoffee.allCoffee.add(new RoastCoffee("Chocolate", 10, 90, "Glass"));
-        listOfCoffee.allCoffee.add(new InstantCoffee("Classic", 5, 8));
-        listOfCoffee.allCoffee.add(new RoastCoffee("Vanilla2", 2, 2, "Glass"));
-        listOfCoffee.allCoffee.add(new InstantCoffee("Blueberry", 8, 18));
+        employeeList.getEmployees().add(new Employee("Tomas", "McKing", 19, 1000, Job.Barista));
+
+        coffeeList.getList().add(new RoastCoffee("Vanilla", 2, 2, "Glass"));
+        coffeeList.getList().add(new RoastCoffee("Chocolate", 10, 90, "Glass"));
+        coffeeList.getList().add(new InstantCoffee("Classic", 5, 8));
+        coffeeList.getList().add(new RoastCoffee("Vanilla2", 2, 2, "Glass"));
+        coffeeList.getList().add(new InstantCoffee("Blueberry", 8, 18));
 
         shop.buy(250, 50);
         shop.printAllCoffee();
 
-        shop.add(new InstantCoffee("S", 2.0, 4.0));
+        Client client = new Client("Pavel", 60);
 
-        client.add(new InstantCoffee("Classic", 5, 10));
-        client.add(new InstantCoffee("Vanilla", 25, 73));
-        client.add(new InstantCoffee("Classic", 5, 10));
-        client.add(new InstantCoffee("NULL", 5, 10));
+        client.add(new InstantCoffee("Classic", 5));
+        client.add(new InstantCoffee("Vanilla", 5));
+        client.add(new InstantCoffee("Classic", 2));
+        client.add(new InstantCoffee("NULL", 2));
 
         client.buy();
-        shop.printAllCoffee();
 
-        shop.searchCoffee(2, 8);
-        shop.searchCoffee("Vanilla2");
+        client.buyDrink(Drink.AMERICANO);
+        shop.printAllCoffee();
+        shop.salesRevenue();
+
+        //shop.searchCoffee(2, 8);
+        //shop.searchCoffee("Vanilla");
+        client.printMoney();
     }
 }
