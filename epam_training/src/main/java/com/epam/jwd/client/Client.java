@@ -22,8 +22,7 @@ public class Client implements ClientInterface {
         int sum = 0;
         if (this.money >= basketPrice)
             for (int j = 0; j < clientList.getClientBasket().size(); j++) {
-                if (Shop.sellCoffee(clientList.getClientBasket().get(j).getTaste(),
-                        clientList.getClientBasket().get(j).getCoffeeType())) {
+                if (Shop.sellCoffee(clientList.getClientBasket().get(j).getTaste())) {
                     if (sum + clientList.getClientBasket().get(j).getPrice() < money) {
                         sum += clientList.getClientBasket().get(j).getPrice();
                         clientList.getClientPurchases().add(clientList.getClientBasket().get(j));

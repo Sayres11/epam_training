@@ -1,7 +1,6 @@
 package com.epam.jwd.shop;
 
 import com.epam.jwd.entity.Coffee;
-import com.epam.jwd.entity.CoffeeType;
 import com.epam.jwd.entity.Drink;
 import com.epam.jwd.storage.CoffeeList;
 import com.epam.jwd.storage.EmployeeList;
@@ -28,16 +27,14 @@ public class Shop implements ShopInterface {
      * a method for selling coffee to a customer
      *
      * @param userTaste search for coffee tastes
-     * @param userType  search for coffee by its type
      */
 
 
-    public static boolean sellCoffee(String userTaste, CoffeeType userType) {
+    public static boolean sellCoffee(String userTaste) {
         if (employeeList.searchBarista()) {
             for (Coffee c :
                     shopList.getCoffeeShop()) {
-                if ((c.getTaste().equals(userTaste))
-                        && (c.getCoffeeType().equals(userType))) {
+                if ((c.getTaste().equals(userTaste))) {
                     money += c.getPrice();
                     shopList.getShopSales().add(c);
                     shopList.getCoffeeShop().remove(c);
@@ -58,9 +55,9 @@ public class Shop implements ShopInterface {
     public static void clientCoffeeSetPrice(Coffee coffee) {
         for (Coffee c :
                 shopList.getCoffeeShop()) {
-            if (c.getTaste().equals(coffee.getTaste())
-                    && c.getCoffeeType().equals(coffee.getCoffeeType())) {
+            if (c.getTaste().equals(coffee.getTaste())) {
                 coffee.setPrice(c.getPrice());
+                coffee.setType(c.getCoffeeType());
                 coffee.setCoffeePack(c.getCoffeePack());
             }
         }
