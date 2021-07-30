@@ -4,7 +4,7 @@ package com.epam.jwd.validation;
  * Exception when transmitting zero or negative value
  */
 public class Validation {
-    public static void validation(Double price, Double weight)
+    public static void validate(Double price, Double weight)
             throws IllegalArgumentException {
 
         if (price <= 0) {

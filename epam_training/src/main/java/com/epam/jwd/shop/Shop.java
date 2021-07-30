@@ -1,6 +1,7 @@
 package com.epam.jwd.shop;
 
 import com.epam.jwd.entity.Coffee;
+import com.epam.jwd.entity.CoffeeType;
 import com.epam.jwd.entity.Drink;
 import com.epam.jwd.storage.CoffeeList;
 import com.epam.jwd.storage.EmployeeList;
@@ -16,7 +17,7 @@ public class Shop implements ShopInterface {
     static ShopList shopList = new ShopList();
     static EmployeeList employeeList = EmployeeList.getInstance();
     private static double money;
-    CoffeeList listOfItem = CoffeeList.getInstanceListOfItem();
+    private final CoffeeList listOfItem = CoffeeList.getInstanceListOfItem();
 
     //Constructor - creating a new object
     public Shop(double money) {
@@ -31,12 +32,12 @@ public class Shop implements ShopInterface {
      */
 
 
-    public static boolean sellCoffee(String userTaste, String userType) {
+    public static boolean sellCoffee(String userTaste, CoffeeType userType) {
         if (employeeList.searchBarista()) {
             for (Coffee c :
                     shopList.getCoffeeShop()) {
                 if ((c.getTaste().equals(userTaste))
-                        && (c.getType().equals(userType))) {
+                        && (c.getCoffeeType().equals(userType))) {
                     money += c.getPrice();
                     shopList.getShopSales().add(c);
                     shopList.getCoffeeShop().remove(c);
@@ -58,7 +59,7 @@ public class Shop implements ShopInterface {
         for (Coffee c :
                 shopList.getCoffeeShop()) {
             if (c.getTaste().equals(coffee.getTaste())
-                    && c.getType().equals(coffee.getType())) {
+                    && c.getCoffeeType().equals(coffee.getCoffeeType())) {
                 coffee.setPrice(c.getPrice());
                 coffee.setCoffeePack(c.getCoffeePack());
             }

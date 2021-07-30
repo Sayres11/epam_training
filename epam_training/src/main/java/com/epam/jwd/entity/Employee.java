@@ -3,7 +3,7 @@ package com.epam.jwd.entity;
 import java.util.Objects;
 
 public class Employee {
-    Job job;
+    private Job job;
     private final String name;
     private final String surname;
     private final int age;

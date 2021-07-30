@@ -1,11 +1,12 @@
+/*
 package com.epam.jwd.entity;
 
 import java.util.Objects;
 
 public class RoastCoffee extends Coffee {
 
-    public RoastCoffee(String _taste, double _weight, double _price, CoffeePack coffeePack) {
-        super(_taste, _weight, _price, coffeePack);
+    public RoastCoffee(String taste, double weight, double price, CoffeePack coffeePack) {
+        super(taste, weight, price, coffeePack);
         setType("Roast");
     }
 
@@ -67,3 +68,4 @@ public class RoastCoffee extends Coffee {
         return getCoffeePack() + ", " + getType() + " " + getTaste() + " flavoured coffee, " + getWeight() + "KG" + " coast:" + getPrice() + "$";
     }
 }
+*/

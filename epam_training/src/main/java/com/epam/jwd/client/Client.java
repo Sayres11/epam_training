@@ -10,7 +10,7 @@ public class Client implements ClientInterface {
     private double money;
     private double basketPrice;
 
-    ClientList clientList = new ClientList(this);
+    private final ClientList clientList = new ClientList(this);
 
     public Client(String name, double money) {
         this.name = name;
@@ -23,7 +23,7 @@ public class Client implements ClientInterface {
         if (this.money >= basketPrice)
             for (int j = 0; j < clientList.getClientBasket().size(); j++) {
                 if (Shop.sellCoffee(clientList.getClientBasket().get(j).getTaste(),
-                        clientList.getClientBasket().get(j).getType())) {
+                        clientList.getClientBasket().get(j).getCoffeeType())) {
                     if (sum + clientList.getClientBasket().get(j).getPrice() < money) {
                         sum += clientList.getClientBasket().get(j).getPrice();
                         clientList.getClientPurchases().add(clientList.getClientBasket().get(j));

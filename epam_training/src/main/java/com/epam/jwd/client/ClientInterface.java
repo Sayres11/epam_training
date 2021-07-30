@@ -4,7 +4,7 @@ import com.epam.jwd.entity.Coffee;
 
 public interface ClientInterface {
 
-    void buy();
+   public void buy();
 
-    void add(Coffee coffee);
+   public void add(Coffee coffee);
 }

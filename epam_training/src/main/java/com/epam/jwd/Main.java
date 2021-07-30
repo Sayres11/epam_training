@@ -1,10 +1,14 @@
 package com.epam.jwd;
 
 import com.epam.jwd.client.Client;
-
-import com.epam.jwd.entity.*;
-import com.epam.jwd.storage.CoffeeList;
+import com.epam.jwd.entity.Coffee;
+import com.epam.jwd.entity.CoffeePack;
+import com.epam.jwd.entity.CoffeeType;
+import com.epam.jwd.entity.Drink;
+import com.epam.jwd.entity.Employee;
+import com.epam.jwd.entity.Job;
 import com.epam.jwd.shop.Shop;
+import com.epam.jwd.storage.CoffeeList;
 import com.epam.jwd.storage.EmployeeList;
 
 public class Main {
@@ -15,28 +19,24 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-        CoffeeList coffeeList = CoffeeList.getInstanceListOfItem();
-        EmployeeList employeeList = EmployeeList.getInstance();
+        final CoffeeList coffeeList = CoffeeList.getInstanceListOfItem();
+        final EmployeeList employeeList = EmployeeList.getInstance();
 
         Shop shop = new Shop(2000);
 
         employeeList.getEmployees().add(new Employee("Tomas", "McKing", 19, 1000, Job.Barista));
 
-        coffeeList.getList().add(new RoastCoffee("Vanilla", 2, 2, CoffeePack.GLASS));
-        coffeeList.getList().add(new RoastCoffee("Chocolate", 10, 90, CoffeePack.GLASS));
-        coffeeList.getList().add(new InstantCoffee("Classic", 5, 8, CoffeePack.CARTON));
-        coffeeList.getList().add(new RoastCoffee("Vanilla2", 2, 2, CoffeePack.BOX));
-        coffeeList.getList().add(new InstantCoffee("Blueberry", 8, 18, CoffeePack.GLASS));
+        coffeeList.getList().add(new Coffee("Vanilla", 2, 2, CoffeePack.GLASS, CoffeeType.RoastCoffee));
+        coffeeList.getList().add(new Coffee("Vanilla", 2, 2, CoffeePack.CARTON, CoffeeType.InstantCoffee));
+        coffeeList.getList().add(new Coffee("Blueberry", 4, 6, CoffeePack.GLASS, CoffeeType.RoastCoffee));
+        coffeeList.getList().add(new Coffee("Chocolate", 1, 3, CoffeePack.CARTON, CoffeeType.InstantCoffee));
+        coffeeList.getList().add(new Coffee("Vanilla", 2, 2, CoffeePack.GLASS, CoffeeType.RoastCoffee));
+        coffeeList.getList().add(new Coffee("Vanilla", 2, 2, CoffeePack.CARTON, CoffeeType.InstantCoffee));
 
         shop.buy(250, 50);
         shop.printAllCoffee();
 
         Client client = new Client("Pavel", 60);
-
-        client.add(new InstantCoffee("Classic", 5));
-        client.add(new InstantCoffee("Vanilla", 5));
-        client.add(new InstantCoffee("Classic", 2));
-        client.add(new InstantCoffee("NULL", 2));
 
         client.buy();
 

@@ -1,8 +1,11 @@
+/*
 package com.epam.jwd.entity;
 
+*/
 /**
  * a class created from an abstract coffee class has only its method
- */
+ *//*
+
 public class InstantCoffee extends Coffee {
 
     public InstantCoffee(String taste, double weight, double price, CoffeePack coffeePack) {
@@ -61,3 +64,4 @@ public class InstantCoffee extends Coffee {
     }
 }
 
+*/

@@ -8,26 +8,21 @@ import java.util.Objects;
  * @author Aliaksei Karabelnikau
  * @version 16
  */
-public abstract class Coffee {
+public class Coffee {
 
     private final String taste;
-    private String type;
     private double price;
     private final double weight;
 
     private CoffeePack coffeePack;
+    private CoffeeType coffeeType;
 
-    /**
-     * Constructor - create a new object(Coffee) with defined values
-     *
-     * @see InstantCoffee#InstantCoffee
-     * @see RoastCoffee#RoastCoffee
-     */
-    public Coffee(String taste, double weight, double price, CoffeePack coffeePack) {
+    public Coffee(String taste, double weight, double price, CoffeePack coffeePack,CoffeeType coffeeType) {
         this.taste = taste;
         this.weight = weight;
         this.price = price;
         this.coffeePack = coffeePack;
+        this.coffeeType = coffeeType;
     }
 
     public Coffee(String taste, double weight) {
@@ -46,12 +41,13 @@ public abstract class Coffee {
     }
 
     /**
-     * Function to get the value of the {@link Coffee#type} field
+     * Function to get the value of the {@link Coffee#coffeeType} field
      *
      * @return returns the type of coffee
      */
-    public String getType() {
-        return this.type;
+
+    public CoffeeType getCoffeeType() {
+        return coffeeType;
     }
 
     /**
@@ -79,8 +75,8 @@ public abstract class Coffee {
     /**
      * Sets the value of the _type property
      */
-    public void setType(String t) {
-        this.type = t;
+    public void setType(CoffeeType t) {
+        this.coffeeType = t;
     }
 
     public void setPrice(double price) {
@@ -99,16 +95,16 @@ public abstract class Coffee {
         return Double.compare(coffee.getPrice(), getPrice()) == 0
                 && Double.compare(coffee.getWeight(), getWeight()) == 0
                 && getTaste().equals(coffee.getTaste())
-                && getType().equals(coffee.getType());
+                && getCoffeeType().equals(coffee.getCoffeeType());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getTaste(), getType(), getPrice(), getWeight());
+        return Objects.hash(getTaste(), getCoffeeType(), getPrice(), getWeight());
     }
 
     @Override
     public String toString() {
-        return this.coffeePack + ", " + this.type + ", " + this.taste + " flavoured coffee, " + this.weight + "KG" + " coast:" + this.price + "$";
+        return this.coffeePack + ", " + this.coffeeType + ", " + this.taste + " flavoured coffee, " + this.weight + "KG" + " coast:" + this.price + "$";
     }
 }
